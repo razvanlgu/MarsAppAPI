@@ -1,5 +1,5 @@
 import * as express from "express";
-import {getAllRovers, getRoverPhotos, getRoverPhotosWithCamera} from "./controller";
+import {getAllRoverPhotos, getAllRovers, getRoverPhotos, getRoverPhotosWithCamera} from "./controller";
 
 const app = express();
 const port = 8000;
@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/rovers', async (req, res) =>
     res.send(await getAllRovers()));
 router.get('/rovers/photos', async (req, res) =>
-        res.send(await getAllRovers()));
+        res.send(await getAllRoverPhotos()));
 router.get('/rovers/:rover/photos/:camera', async (req, res) =>
         res.send(await getRoverPhotosWithCamera(req.params.rover, req.params.camera)))
 router.get('/rovers/:rover/photos', async (req, res) =>
